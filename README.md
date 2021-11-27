@@ -3,7 +3,7 @@
 - 🌱 I’m currently learning Python language.
 
 
-
+![alt](
       <svg
         width="495"
         height="195"
@@ -221,3 +221,4 @@
         </g>
       </svg>
     
+)
