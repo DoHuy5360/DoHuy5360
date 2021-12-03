@@ -15,6 +15,6 @@ Contact with me to:
 
 ***
 
-![?](https://github-readme-stats.vercel.app/api/top-langs/?username=DoHuy5360&layout=compact&langs_count=8)
+![?](https://github-readme-stats.vercel.app/api/top-langs/?username=DoHuy5360&layout=compact&langs_count=8&theme=dracula)
 ---
 ***
