@@ -7,7 +7,7 @@ Contact with me to:
 
 *** 
 
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=DoHuy5360&show_icons=true&theme=dracula)
+![?](https://github-readme-stats.vercel.app/api?username=DoHuy5360&show_icons=true&theme=dracula)
 ---
 ***
 
@@ -15,6 +15,6 @@ Contact with me to:
 
 ***
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=DoHuy5360&layout=compact&langs_count=8)
+![?](https://github-readme-stats.vercel.app/api/top-langs/?username=DoHuy5360&layout=compact&langs_count=8)
 ---
 ***
