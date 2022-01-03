@@ -11,4 +11,3 @@ Contact with me to:
 
 ![?](https://github-profile-trophy.vercel.app/?username=DoHuy5360&theme=dracula)
 
-![image](https://user-images.githubusercontent.com/80961056/146669881-1437d880-0dc9-47c1-8eb9-ab4d98b91356.png)
