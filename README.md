@@ -1,5 +1,5 @@
 # Đỗ Huy / Programmer 🐞
-![clock](https://dohuygists.github.io/github-time-plugin/github-time-plugin/index.html)
+
 Contact with me to: 
 - [Facebook] : https://www.facebook.com/dohuyxyz/
 - [Gmail] : dohuy200276@gmail.com
