@@ -1,4 +1,4 @@
-<img src="svg/svg.svg">
+<img src="svg/svg.svg" draggable="false">
 # Đỗ Huy / Programmer 🐞
 
 Contact with me to: 
