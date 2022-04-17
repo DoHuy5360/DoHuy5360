@@ -1,0 +1,146 @@
+<svg
+  fill="none"
+  viewBox="0 0 900 900"
+  width="900"
+  height="900"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        .container {
+          font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 900px;
+          color: white;
+          position: relative;
+          background-color: transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .circle,
+        .circle-2,
+        .circle-3,
+        .circle-4{
+            position: absolute;
+            width: var(--wh);
+            height: var(--wh);
+        }
+        .circle{
+            transform: skewY(50deg);
+        }
+        .circle-2{
+            transform: skewY(-50deg);
+        }
+        .circle-3{
+            transform: skewX(50deg);
+        }
+        .circle-4{
+            transform: skewX(-50deg);
+        }
+        .circle-spin{
+            width: inherit;
+            height: inherit;
+            position: absolute;
+            border: 5px dashed var(--cl);
+            border-radius: 50%;
+            animation: spin 50000ms infinite linear;
+        }
+        @keyframes spin{
+            from{
+                transform: rotate(0);
+            }
+            to{
+                transform: rotate(1turn);
+            }
+        }   
+        .cube3{
+            --wh: 100px;
+            position: absolute;
+            width: var(--wh);
+            height: var(--wh);
+            transform-style: preserve-3d;
+            animation: rotate3 10000ms linear infinite;
+            z-index: 0;
+        }
+        .side{
+            border: 3px solid white;
+            border-radius: 6px;
+            opacity: .9;
+            background-color: var(--cl);
+            width: inherit;
+            height: inherit;
+            position: absolute;
+        }
+        .side.front{
+            transform: translateZ(var(--z));
+        }
+        .side.back{
+            transform: translateZ(var(--z));
+        }
+        .side.left{
+            transform: translateX(var(--x)) rotateY(var(--y));
+        }
+        .side.right{
+            transform: translateX(var(--x)) rotateY(var(--y));
+        }
+        .side.top{
+            transform: translateY(var(--y)) rotateX(var(--x));
+        }
+        .side.bottom{
+            transform: translateY(var(--y)) rotateX(var(--x));
+        }
+        @keyframes rotate{
+            from{
+                transform: rotate3d(0,0,0,0);
+            }
+            to{
+                transform: rotate3d(-1,1,1,360deg);
+            }
+        }
+        @keyframes rotate2{
+            from{
+                transform: rotate3d(0,0,0,0);
+            }
+            to{
+                transform: rotate3d(-1,-1,1,360deg);
+            }
+        }
+        @keyframes rotate3{
+            from{
+                transform: rotate3d(0,0,0,0);
+            }
+            to{
+                transform: rotate3d(-1,-1,-1,360deg);
+            }
+        }
+      </style>
+
+      <div class="container">
+        <div style="--cl: #16DCD4;" class="cube3">
+            <div style="--y:-50px;--x:-90deg;" class="side top"></div>
+            <div style="--y:50px;--x:90deg;" class="side bottom"></div>
+            <div style="--x:50px;--y:-90deg;" class="side left"></div>
+            <div style="--x:50px;--y:90deg;" class="side right"></div>
+            <div style="--z:50px;" class="side front"></div>
+            <div style="--z:-50px;" class="side back"></div>
+        </div>
+      <div style="--wh: 300px;" class="circle">
+        <div style="--cl: red;" class="circle-spin"></div>
+      </div>
+      <div style="--wh: 500px;" class="circle-2">
+        <div style="--cl: royalblue;" class="circle-spin"></div>
+      </div>
+      <div style="--wh: 600px;" class="circle-3">
+        <div style="--cl: green;" class="circle-spin"></div>
+      </div>
+      <div style="--wh: 400px;" class="circle-4">
+        <div style="--cl: yellow;" class="circle-spin"></div>
+      </div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>
