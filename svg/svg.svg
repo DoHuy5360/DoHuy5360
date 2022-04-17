@@ -9,7 +9,6 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
         .container {
-          font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
           margin: 0;
           padding: 0;
           width: 100%;
@@ -67,7 +66,7 @@
             z-index: 0;
         }
         .side{
-            border: 3px solid white;
+            border: 1px solid white;
             border-radius: 6px;
             opacity: .9;
             background-color: var(--cl);
@@ -92,22 +91,6 @@
         }
         .side.bottom{
             transform: translateY(var(--y)) rotateX(var(--x));
-        }
-        @keyframes rotate{
-            from{
-                transform: rotate3d(0,0,0,0);
-            }
-            to{
-                transform: rotate3d(-1,1,1,360deg);
-            }
-        }
-        @keyframes rotate2{
-            from{
-                transform: rotate3d(0,0,0,0);
-            }
-            to{
-                transform: rotate3d(-1,-1,1,360deg);
-            }
         }
         @keyframes rotate3{
             from{
@@ -134,7 +117,7 @@
       <div style="--wh: 500px;" class="circle-2">
         <div style="--cl: royalblue;" class="circle-spin"></div>
       </div>
-      <div style="--wh: 600px;" class="circle-3">
+      <div style="--wh: 500px;" class="circle-3">
         <div style="--cl: green;" class="circle-spin"></div>
       </div>
       <div style="--wh: 400px;" class="circle-4">
