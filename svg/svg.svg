@@ -19,8 +19,8 @@
           height: 600px;
           color: white;
           position: relative;
-<!--           background-color: #282A36; -->
-          background-color: transparent;
+          background-color: #0D1117;
+<!--           background-color: transparent; -->
           display: flex;
           justify-content: center;
           align-items: center;
