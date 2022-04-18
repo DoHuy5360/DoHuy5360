@@ -1,129 +1,669 @@
 <svg
   fill="none"
-  viewBox="0 0 900 900"
-  width="900"
-  height="900"
+  viewBox="0 0 1300 600"
+  width="1300"
+  height="600"
   xmlns="http://www.w3.org/2000/svg"
 >
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
+      :root{
+          --w-c-s: 1200px;
+      }
         .container {
+          font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
           margin: 0;
           padding: 0;
           width: 100%;
-          height: 900px;
+          height: 600px;
           color: white;
           position: relative;
-          background-color: transparent;
+          background-color: #282A36;
+          <!-- background-color: transparent; -->
           display: flex;
           justify-content: center;
           align-items: center;
         }
-        .circle,
-        .circle-2,
-        .circle-3,
-        .circle-4{
+        <!--! circle -->
+        .circle{
             position: absolute;
+            --wh: var(--w-c-s);
             width: var(--wh);
             height: var(--wh);
-        }
-        .circle{
-            transform: skewY(50deg);
-        }
-        .circle-2{
-            transform: skewY(-50deg);
-        }
-        .circle-3{
-            transform: skewX(50deg);
-        }
-        .circle-4{
-            transform: skewX(-50deg);
+            border: 1px solid #ffffff97;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            transform: rotate3d(1,0,0,103deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
         }
         .circle-spin{
-            width: inherit;
-            height: inherit;
+            width: var(--wh);
+            height: var(--wh);
             position: absolute;
-            border: 5px dashed var(--cl);
+            border: 1px solid #ffffff97;
             border-radius: 50%;
-            animation: spin 50000ms infinite linear;
+            transform-style: preserve-3d;
+            display: flex;
+            justify-content: center;
+            animation: spin var(--sp) infinite linear;
+        }
+        .wrap-index-mercury{
+            --cl: white;
+            width: 5px;
+            height: 5px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        .wrap-index-venus{
+            --cl: brown;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        .wrap-index-earth{
+            --cl: royalblue;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        .wrap-spin-moon{
+            width: 10px;
+            height: 40px;
+            animation: spin-moon 4000ms linear infinite;
+            transform-style: preserve-3d;
+            position: absolute;
+            top: -10px;
+            z-index: 3;
+        }
+        .wrap-moon{
+            transform-style: preserve-3d;
+        }
+        .wrap-index-moon{
+            --cl: gray;
+            width: 5px;
+            height: 5px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        @keyframes spin-moon{
+            from{
+                transform: rotate3d(0,0,0,0);
+            }
+            to{
+                transform: rotate3d(0,0,1,360deg);
+            }
+        }
+        .wrap-index-mars{
+            --cl: #9C8369;
+            width: 5px;
+            height: 5px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        .wrap-index-jupiter{
+            --cl: #99846b;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        @keyframes index{
+            from{
+                z-index: 1;
+            }
+            to{
+                z-index: 0;
+            }
+        }
+        .wrap-index-saturn{
+            --cl: #83715b;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        .wrap-saturn-belt{
+            width: 40px;
+            height: 40px;
+            border: 10px solid #99846b6c;
+            border-radius: 50%;
+            z-index: 1;
+            position: absolute;
+            transform: translateY(-25%)
+        }
+        .wrap-index-uranus{
+            --cl: #687981;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+        .wrap-index-neptune{
+            --cl: #5871A0;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            transform-style: preserve-3d;
         }
         @keyframes spin{
             from{
-                transform: rotate(0);
+                transform: rotate3d(0,0,0,0);
             }
             to{
-                transform: rotate(1turn);
+                transform: rotate3d(0,0,1, 360deg);
             }
-        }   
-        .cube3{
-            --wh: 100px;
+        }
+        .the-sun{
+            --wh: 200px;
             position: absolute;
             width: var(--wh);
             height: var(--wh);
+            opacity: .9;
+        }
+        .wrap-index{
+            width: inherit;
+            height: inherit;
+            position: absolute;
             transform-style: preserve-3d;
-            animation: rotate3 10000ms linear infinite;
-            z-index: 0;
+            animation: rotate3 20000ms linear infinite;
         }
         .side{
-            border: 1px solid white;
-            border-radius: 6px;
-            opacity: .9;
             background-color: var(--cl);
+            border-radius: 50%;
             width: inherit;
             height: inherit;
             position: absolute;
         }
-        .side.front{
-            transform: translateZ(var(--z));
+        .y-index{
+            transform: rotateY(var(--y));
         }
-        .side.back{
-            transform: translateZ(var(--z));
-        }
-        .side.left{
-            transform: translateX(var(--x)) rotateY(var(--y));
-        }
-        .side.right{
-            transform: translateX(var(--x)) rotateY(var(--y));
-        }
-        .side.top{
-            transform: translateY(var(--y)) rotateX(var(--x));
-        }
-        .side.bottom{
-            transform: translateY(var(--y)) rotateX(var(--x));
+        .x-index{
+            transform: rotateX(var(--x));
         }
         @keyframes rotate3{
             from{
                 transform: rotate3d(0,0,0,0);
             }
             to{
-                transform: rotate3d(-1,-1,-1,360deg);
+                transform: rotate3d(0,1,0,360deg);
             }
+        }
+        .wrap-text{
+            height: 100px;
+            white: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform: rotate3d(-1,0,0,90deg)
+        }
+        .wrap-text div{
+            position: relative;
+            transform: translateZ(-50px);
+        }
+        .author{
+            color: #fff;
+            transform: translate(10px, -30px);
         }
       </style>
 
       <div class="container">
-        <div style="--cl: #16DCD4;" class="cube3">
-            <div style="--y:-50px;--x:-90deg;" class="side top"></div>
-            <div style="--y:50px;--x:90deg;" class="side bottom"></div>
-            <div style="--x:50px;--y:-90deg;" class="side left"></div>
-            <div style="--x:50px;--y:90deg;" class="side right"></div>
-            <div style="--z:50px;" class="side front"></div>
-            <div style="--z:-50px;" class="side back"></div>
+        <div class="circle">
+            <div style="--wh: calc(var(--w-c-s) - 800px); --sp: 10000ms" class="circle-spin">
+                <div class="wrap-text"><div>Mercury</div></div>
+                <div class="wrap-index-mercury">
+                    <div style="--y:10deg;" class="side y-index"></div>
+                    <div style="--y:20deg;" class="side y-index"></div>
+                    <div style="--y:30deg;" class="side y-index"></div>
+                    <div style="--y:40deg;" class="side y-index"></div>
+                    <div style="--y:50deg;" class="side y-index"></div>
+                    <div style="--y:60deg;" class="side y-index"></div>
+                    <div style="--y:70deg;" class="side y-index"></div>
+                    <div style="--y:80deg;" class="side y-index"></div>
+                    <div style="--y:90deg;" class="side y-index"></div>
+                    <div style="--y:100deg;" class="side y-index"></div>
+                    <div style="--y:110deg;" class="side y-index"></div>
+                    <div style="--y:120deg;" class="side y-index"></div>
+                    <div style="--y:130deg;" class="side y-index"></div>
+                    <div style="--y:140deg;" class="side y-index"></div>
+                    <div style="--y:150deg;" class="side y-index"></div>
+                    <div style="--y:160deg;" class="side y-index"></div>
+                    <div style="--y:170deg;" class="side y-index"></div>
+                    <div style="--y:180deg;" class="side y-index"></div>
+                </div>
+                <div class="wrap-index-mercury">
+                    <div style="--x:10deg;" class="side x-index"></div>
+                    <div style="--x:20deg;" class="side x-index"></div>
+                    <div style="--x:30deg;" class="side x-index"></div>
+                    <div style="--x:40deg;" class="side x-index"></div>
+                    <div style="--x:50deg;" class="side x-index"></div>
+                    <div style="--x:60deg;" class="side x-index"></div>
+                    <div style="--x:70deg;" class="side x-index"></div>
+                    <div style="--x:80deg;" class="side x-index"></div>
+                    <div style="--x:90deg;" class="side x-index"></div>
+                    <div style="--x:100deg;" class="side x-index"></div>
+                    <div style="--x:110deg;" class="side x-index"></div>
+                    <div style="--x:120deg;" class="side x-index"></div>
+                    <div style="--x:130deg;" class="side x-index"></div>
+                    <div style="--x:140deg;" class="side x-index"></div>
+                    <div style="--x:150deg;" class="side x-index"></div>
+                    <div style="--x:160deg;" class="side x-index"></div>
+                    <div style="--x:170deg;" class="side x-index"></div>
+                    <div style="--x:180deg;" class="side x-index"></div>
+                </div>
+            </div>
+            <div style="--wh: calc(var(--w-c-s) - 700px); --sp: 15000ms" class="circle-spin">
+                <div class="wrap-text">
+                    <div>Venus</div>
+                </div>
+                <div class="wrap-index-venus">
+                    <div style="--y:10deg;" class="side y-index"></div>
+                    <div style="--y:20deg;" class="side y-index"></div>
+                    <div style="--y:30deg;" class="side y-index"></div>
+                    <div style="--y:40deg;" class="side y-index"></div>
+                    <div style="--y:50deg;" class="side y-index"></div>
+                    <div style="--y:60deg;" class="side y-index"></div>
+                    <div style="--y:70deg;" class="side y-index"></div>
+                    <div style="--y:80deg;" class="side y-index"></div>
+                    <div style="--y:90deg;" class="side y-index"></div>
+                    <div style="--y:100deg;" class="side y-index"></div>
+                    <div style="--y:110deg;" class="side y-index"></div>
+                    <div style="--y:120deg;" class="side y-index"></div>
+                    <div style="--y:130deg;" class="side y-index"></div>
+                    <div style="--y:140deg;" class="side y-index"></div>
+                    <div style="--y:150deg;" class="side y-index"></div>
+                    <div style="--y:160deg;" class="side y-index"></div>
+                    <div style="--y:170deg;" class="side y-index"></div>
+                    <div style="--y:180deg;" class="side y-index"></div>
+                </div>
+                <div class="wrap-index-venus">
+                    <div style="--x:10deg;" class="side x-index"></div>
+                    <div style="--x:20deg;" class="side x-index"></div>
+                    <div style="--x:30deg;" class="side x-index"></div>
+                    <div style="--x:40deg;" class="side x-index"></div>
+                    <div style="--x:50deg;" class="side x-index"></div>
+                    <div style="--x:60deg;" class="side x-index"></div>
+                    <div style="--x:70deg;" class="side x-index"></div>
+                    <div style="--x:80deg;" class="side x-index"></div>
+                    <div style="--x:90deg;" class="side x-index"></div>
+                    <div style="--x:100deg;" class="side x-index"></div>
+                    <div style="--x:110deg;" class="side x-index"></div>
+                    <div style="--x:120deg;" class="side x-index"></div>
+                    <div style="--x:130deg;" class="side x-index"></div>
+                    <div style="--x:140deg;" class="side x-index"></div>
+                    <div style="--x:150deg;" class="side x-index"></div>
+                    <div style="--x:160deg;" class="side x-index"></div>
+                    <div style="--x:170deg;" class="side x-index"></div>
+                    <div style="--x:180deg;" class="side x-index"></div>
+                </div>
+            </div>
+            <div style="--wh: calc(var(--w-c-s) - 600px); --sp: 20000ms" class="circle-spin">
+                <div class="wrap-text">
+                    <div>Earth &#38; Moon</div>
+                </div>
+                <div class="wrap-index-earth">
+                    <div style="--y:10deg;" class="side y-index"></div>
+                    <div style="--y:20deg;" class="side y-index"></div>
+                    <div style="--y:30deg;" class="side y-index"></div>
+                    <div style="--y:40deg;" class="side y-index"></div>
+                    <div style="--y:50deg;" class="side y-index"></div>
+                    <div style="--y:60deg;" class="side y-index"></div>
+                    <div style="--y:70deg;" class="side y-index"></div>
+                    <div style="--y:80deg;" class="side y-index"></div>
+                    <div style="--y:90deg;" class="side y-index"></div>
+                    <div style="--y:100deg;" class="side y-index"></div>
+                    <div style="--y:110deg;" class="side y-index"></div>
+                    <div style="--y:120deg;" class="side y-index"></div>
+                    <div style="--y:130deg;" class="side y-index"></div>
+                    <div style="--y:140deg;" class="side y-index"></div>
+                    <div style="--y:150deg;" class="side y-index"></div>
+                    <div style="--y:160deg;" class="side y-index"></div>
+                    <div style="--y:170deg;" class="side y-index"></div>
+                    <div style="--y:180deg;" class="side y-index"></div>
+                </div>
+                <div class="wrap-index-earth">
+                    <div style="--x:10deg;" class="side x-index"></div>
+                    <div style="--x:20deg;" class="side x-index"></div>
+                    <div style="--x:30deg;" class="side x-index"></div>
+                    <div style="--x:40deg;" class="side x-index"></div>
+                    <div style="--x:50deg;" class="side x-index"></div>
+                    <div style="--x:60deg;" class="side x-index"></div>
+                    <div style="--x:70deg;" class="side x-index"></div>
+                    <div style="--x:80deg;" class="side x-index"></div>
+                    <div style="--x:90deg;" class="side x-index"></div>
+                    <div style="--x:100deg;" class="side x-index"></div>
+                    <div style="--x:110deg;" class="side x-index"></div>
+                    <div style="--x:120deg;" class="side x-index"></div>
+                    <div style="--x:130deg;" class="side x-index"></div>
+                    <div style="--x:140deg;" class="side x-index"></div>
+                    <div style="--x:150deg;" class="side x-index"></div>
+                    <div style="--x:160deg;" class="side x-index"></div>
+                    <div style="--x:170deg;" class="side x-index"></div>
+                    <div style="--x:180deg;" class="side x-index"></div>
+                </div>
+                <div class="wrap-spin-moon">
+                    <div class="wrap-moon">
+                        <div class="wrap-index-moon">
+                        <div style="--y:10deg;" class="side y-index"></div>
+                        <div style="--y:20deg;" class="side y-index"></div>
+                        <div style="--y:30deg;" class="side y-index"></div>
+                        <div style="--y:40deg;" class="side y-index"></div>
+                        <div style="--y:50deg;" class="side y-index"></div>
+                        <div style="--y:60deg;" class="side y-index"></div>
+                        <div style="--y:70deg;" class="side y-index"></div>
+                        <div style="--y:80deg;" class="side y-index"></div>
+                        <div style="--y:90deg;" class="side y-index"></div>
+                        <div style="--y:100deg;" class="side y-index"></div>
+                        <div style="--y:110deg;" class="side y-index"></div>
+                        <div style="--y:120deg;" class="side y-index"></div>
+                        <div style="--y:130deg;" class="side y-index"></div>
+                        <div style="--y:140deg;" class="side y-index"></div>
+                        <div style="--y:150deg;" class="side y-index"></div>
+                        <div style="--y:160deg;" class="side y-index"></div>
+                        <div style="--y:170deg;" class="side y-index"></div>
+                        <div style="--y:180deg;" class="side y-index"></div>
+                    </div>
+                    <div class="wrap-index-moon">
+                        <div style="--x:10deg;" class="side x-index"></div>
+                        <div style="--x:20deg;" class="side x-index"></div>
+                        <div style="--x:30deg;" class="side x-index"></div>
+                        <div style="--x:40deg;" class="side x-index"></div>
+                        <div style="--x:50deg;" class="side x-index"></div>
+                        <div style="--x:60deg;" class="side x-index"></div>
+                        <div style="--x:70deg;" class="side x-index"></div>
+                        <div style="--x:80deg;" class="side x-index"></div>
+                        <div style="--x:90deg;" class="side x-index"></div>
+                        <div style="--x:100deg;" class="side x-index"></div>
+                        <div style="--x:110deg;" class="side x-index"></div>
+                        <div style="--x:120deg;" class="side x-index"></div>
+                        <div style="--x:130deg;" class="side x-index"></div>
+                        <div style="--x:140deg;" class="side x-index"></div>
+                        <div style="--x:150deg;" class="side x-index"></div>
+                        <div style="--x:160deg;" class="side x-index"></div>
+                        <div style="--x:170deg;" class="side x-index"></div>
+                        <div style="--x:180deg;" class="side x-index"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div style="--wh: calc(var(--w-c-s) - 500px); --sp: 25000ms" class="circle-spin">
+                <div class="wrap-text">
+                    <div>Mars</div>
+                </div>
+                <div class="wrap-index-mars">
+                    <div style="--y:10deg;" class="side y-index"></div>
+                    <div style="--y:20deg;" class="side y-index"></div>
+                    <div style="--y:30deg;" class="side y-index"></div>
+                    <div style="--y:40deg;" class="side y-index"></div>
+                    <div style="--y:50deg;" class="side y-index"></div>
+                    <div style="--y:60deg;" class="side y-index"></div>
+                    <div style="--y:70deg;" class="side y-index"></div>
+                    <div style="--y:80deg;" class="side y-index"></div>
+                    <div style="--y:90deg;" class="side y-index"></div>
+                    <div style="--y:100deg;" class="side y-index"></div>
+                    <div style="--y:110deg;" class="side y-index"></div>
+                    <div style="--y:120deg;" class="side y-index"></div>
+                    <div style="--y:130deg;" class="side y-index"></div>
+                    <div style="--y:140deg;" class="side y-index"></div>
+                    <div style="--y:150deg;" class="side y-index"></div>
+                    <div style="--y:160deg;" class="side y-index"></div>
+                    <div style="--y:170deg;" class="side y-index"></div>
+                    <div style="--y:180deg;" class="side y-index"></div>
+                </div>
+                <div class="wrap-index-mars">
+                    <div style="--x:10deg;" class="side x-index"></div>
+                    <div style="--x:20deg;" class="side x-index"></div>
+                    <div style="--x:30deg;" class="side x-index"></div>
+                    <div style="--x:40deg;" class="side x-index"></div>
+                    <div style="--x:50deg;" class="side x-index"></div>
+                    <div style="--x:60deg;" class="side x-index"></div>
+                    <div style="--x:70deg;" class="side x-index"></div>
+                    <div style="--x:80deg;" class="side x-index"></div>
+                    <div style="--x:90deg;" class="side x-index"></div>
+                    <div style="--x:100deg;" class="side x-index"></div>
+                    <div style="--x:110deg;" class="side x-index"></div>
+                    <div style="--x:120deg;" class="side x-index"></div>
+                    <div style="--x:130deg;" class="side x-index"></div>
+                    <div style="--x:140deg;" class="side x-index"></div>
+                    <div style="--x:150deg;" class="side x-index"></div>
+                    <div style="--x:160deg;" class="side x-index"></div>
+                    <div style="--x:170deg;" class="side x-index"></div>
+                    <div style="--x:180deg;" class="side x-index"></div>
+                </div>
+            </div>
+            <div style="--wh: calc(var(--w-c-s) - 400px); --sp: 30000ms;" class="circle-spin">
+                <div class="wrap-text">
+                    <div>Jupiter</div>
+                </div>
+                <div class="wrap-index-jupiter">
+                    <div style="--y:10deg;" class="side y-index"></div>
+                    <div style="--y:20deg;" class="side y-index"></div>
+                    <div style="--y:30deg;" class="side y-index"></div>
+                    <div style="--y:40deg;" class="side y-index"></div>
+                    <div style="--y:50deg;" class="side y-index"></div>
+                    <div style="--y:60deg;" class="side y-index"></div>
+                    <div style="--y:70deg;" class="side y-index"></div>
+                    <div style="--y:80deg;" class="side y-index"></div>
+                    <div style="--y:90deg;" class="side y-index"></div>
+                    <div style="--y:100deg;" class="side y-index"></div>
+                    <div style="--y:110deg;" class="side y-index"></div>
+                    <div style="--y:120deg;" class="side y-index"></div>
+                    <div style="--y:130deg;" class="side y-index"></div>
+                    <div style="--y:140deg;" class="side y-index"></div>
+                    <div style="--y:150deg;" class="side y-index"></div>
+                    <div style="--y:160deg;" class="side y-index"></div>
+                    <div style="--y:170deg;" class="side y-index"></div>
+                    <div style="--y:180deg;" class="side y-index"></div>
+                </div>
+                <div class="wrap-index-jupiter">
+                    <div style="--x:10deg;" class="side x-index"></div>
+                    <div style="--x:20deg;" class="side x-index"></div>
+                    <div style="--x:30deg;" class="side x-index"></div>
+                    <div style="--x:40deg;" class="side x-index"></div>
+                    <div style="--x:50deg;" class="side x-index"></div>
+                    <div style="--x:60deg;" class="side x-index"></div>
+                    <div style="--x:70deg;" class="side x-index"></div>
+                    <div style="--x:80deg;" class="side x-index"></div>
+                    <div style="--x:90deg;" class="side x-index"></div>
+                    <div style="--x:100deg;" class="side x-index"></div>
+                    <div style="--x:110deg;" class="side x-index"></div>
+                    <div style="--x:120deg;" class="side x-index"></div>
+                    <div style="--x:130deg;" class="side x-index"></div>
+                    <div style="--x:140deg;" class="side x-index"></div>
+                    <div style="--x:150deg;" class="side x-index"></div>
+                    <div style="--x:160deg;" class="side x-index"></div>
+                    <div style="--x:170deg;" class="side x-index"></div>
+                    <div style="--x:180deg;" class="side x-index"></div>
+                </div>
+            </div>
+            <div style="--wh: calc(var(--w-c-s) - 300px); --sp: 35000ms" class="circle-spin">
+                <div class="wrap-text">
+                    <div>Saturn</div>
+                </div>
+                <div class="wrap-index-saturn">
+                    <div style="--y:10deg;" class="side y-index"></div>
+                    <div style="--y:20deg;" class="side y-index"></div>
+                    <div style="--y:30deg;" class="side y-index"></div>
+                    <div style="--y:40deg;" class="side y-index"></div>
+                    <div style="--y:50deg;" class="side y-index"></div>
+                    <div style="--y:60deg;" class="side y-index"></div>
+                    <div style="--y:70deg;" class="side y-index"></div>
+                    <div style="--y:80deg;" class="side y-index"></div>
+                    <div style="--y:90deg;" class="side y-index"></div>
+                    <div style="--y:100deg;" class="side y-index"></div>
+                    <div style="--y:110deg;" class="side y-index"></div>
+                    <div style="--y:120deg;" class="side y-index"></div>
+                    <div style="--y:130deg;" class="side y-index"></div>
+                    <div style="--y:140deg;" class="side y-index"></div>
+                    <div style="--y:150deg;" class="side y-index"></div>
+                    <div style="--y:160deg;" class="side y-index"></div>
+                    <div style="--y:170deg;" class="side y-index"></div>
+                    <div style="--y:180deg;" class="side y-index"></div>
+                </div>
+                <div class="wrap-index-saturn">
+                    <div style="--x:10deg;" class="side x-index"></div>
+                    <div style="--x:20deg;" class="side x-index"></div>
+                    <div style="--x:30deg;" class="side x-index"></div>
+                    <div style="--x:40deg;" class="side x-index"></div>
+                    <div style="--x:50deg;" class="side x-index"></div>
+                    <div style="--x:60deg;" class="side x-index"></div>
+                    <div style="--x:70deg;" class="side x-index"></div>
+                    <div style="--x:80deg;" class="side x-index"></div>
+                    <div style="--x:90deg;" class="side x-index"></div>
+                    <div style="--x:100deg;" class="side x-index"></div>
+                    <div style="--x:110deg;" class="side x-index"></div>
+                    <div style="--x:120deg;" class="side x-index"></div>
+                    <div style="--x:130deg;" class="side x-index"></div>
+                    <div style="--x:140deg;" class="side x-index"></div>
+                    <div style="--x:150deg;" class="side x-index"></div>
+                    <div style="--x:160deg;" class="side x-index"></div>
+                    <div style="--x:170deg;" class="side x-index"></div>
+                    <div style="--x:180deg;" class="side x-index"></div>
+                </div>
+                <div class="wrap-saturn-belt">
+
+                </div>
+            </div>
+            <div style="--wh: calc(var(--w-c-s) - 200px); --sp: 40000ms" class="circle-spin">
+                <div class="wrap-text">
+                    <div>Uranus</div>
+                </div>
+                <div class="wrap-index-uranus">
+                    <div style="--y:10deg;" class="side y-index"></div>
+                    <div style="--y:20deg;" class="side y-index"></div>
+                    <div style="--y:30deg;" class="side y-index"></div>
+                    <div style="--y:40deg;" class="side y-index"></div>
+                    <div style="--y:50deg;" class="side y-index"></div>
+                    <div style="--y:60deg;" class="side y-index"></div>
+                    <div style="--y:70deg;" class="side y-index"></div>
+                    <div style="--y:80deg;" class="side y-index"></div>
+                    <div style="--y:90deg;" class="side y-index"></div>
+                    <div style="--y:100deg;" class="side y-index"></div>
+                    <div style="--y:110deg;" class="side y-index"></div>
+                    <div style="--y:120deg;" class="side y-index"></div>
+                    <div style="--y:130deg;" class="side y-index"></div>
+                    <div style="--y:140deg;" class="side y-index"></div>
+                    <div style="--y:150deg;" class="side y-index"></div>
+                    <div style="--y:160deg;" class="side y-index"></div>
+                    <div style="--y:170deg;" class="side y-index"></div>
+                    <div style="--y:180deg;" class="side y-index"></div>
+                </div>
+                <div class="wrap-index-uranus">
+                    <div style="--x:10deg;" class="side x-index"></div>
+                    <div style="--x:20deg;" class="side x-index"></div>
+                    <div style="--x:30deg;" class="side x-index"></div>
+                    <div style="--x:40deg;" class="side x-index"></div>
+                    <div style="--x:50deg;" class="side x-index"></div>
+                    <div style="--x:60deg;" class="side x-index"></div>
+                    <div style="--x:70deg;" class="side x-index"></div>
+                    <div style="--x:80deg;" class="side x-index"></div>
+                    <div style="--x:90deg;" class="side x-index"></div>
+                    <div style="--x:100deg;" class="side x-index"></div>
+                    <div style="--x:110deg;" class="side x-index"></div>
+                    <div style="--x:120deg;" class="side x-index"></div>
+                    <div style="--x:130deg;" class="side x-index"></div>
+                    <div style="--x:140deg;" class="side x-index"></div>
+                    <div style="--x:150deg;" class="side x-index"></div>
+                    <div style="--x:160deg;" class="side x-index"></div>
+                    <div style="--x:170deg;" class="side x-index"></div>
+                    <div style="--x:180deg;" class="side x-index"></div>
+                </div>
+            </div>
+            <div style="--wh: calc(var(--w-c-s) - 100px); --sp: 45000ms" class="circle-spin">
+                <div class="wrap-text">
+                    <div>Neptune</div>
+                </div>
+                <div class="wrap-index-neptune">
+                    <div style="--y:10deg;" class="side y-index"></div>
+                    <div style="--y:20deg;" class="side y-index"></div>
+                    <div style="--y:30deg;" class="side y-index"></div>
+                    <div style="--y:40deg;" class="side y-index"></div>
+                    <div style="--y:50deg;" class="side y-index"></div>
+                    <div style="--y:60deg;" class="side y-index"></div>
+                    <div style="--y:70deg;" class="side y-index"></div>
+                    <div style="--y:80deg;" class="side y-index"></div>
+                    <div style="--y:90deg;" class="side y-index"></div>
+                    <div style="--y:100deg;" class="side y-index"></div>
+                    <div style="--y:110deg;" class="side y-index"></div>
+                    <div style="--y:120deg;" class="side y-index"></div>
+                    <div style="--y:130deg;" class="side y-index"></div>
+                    <div style="--y:140deg;" class="side y-index"></div>
+                    <div style="--y:150deg;" class="side y-index"></div>
+                    <div style="--y:160deg;" class="side y-index"></div>
+                    <div style="--y:170deg;" class="side y-index"></div>
+                    <div style="--y:180deg;" class="side y-index"></div>
+                </div>
+                <div class="wrap-index-neptune">
+                    <div style="--x:10deg;" class="side x-index"></div>
+                    <div style="--x:20deg;" class="side x-index"></div>
+                    <div style="--x:30deg;" class="side x-index"></div>
+                    <div style="--x:40deg;" class="side x-index"></div>
+                    <div style="--x:50deg;" class="side x-index"></div>
+                    <div style="--x:60deg;" class="side x-index"></div>
+                    <div style="--x:70deg;" class="side x-index"></div>
+                    <div style="--x:80deg;" class="side x-index"></div>
+                    <div style="--x:90deg;" class="side x-index"></div>
+                    <div style="--x:100deg;" class="side x-index"></div>
+                    <div style="--x:110deg;" class="side x-index"></div>
+                    <div style="--x:120deg;" class="side x-index"></div>
+                    <div style="--x:130deg;" class="side x-index"></div>
+                    <div style="--x:140deg;" class="side x-index"></div>
+                    <div style="--x:150deg;" class="side x-index"></div>
+                    <div style="--x:160deg;" class="side x-index"></div>
+                    <div style="--x:170deg;" class="side x-index"></div>
+                    <div style="--x:180deg;" class="side x-index"></div>
+                </div>
+            </div>
         </div>
-      <div style="--wh: 300px;" class="circle">
-        <div style="--cl: red;" class="circle-spin"></div>
+        <div style="--cl: #D34807;" class="the-sun">
+            <center>Sun</center>
+            <div class="wrap-index">
+                <div style="--y:10deg;" class="side y-index"></div>
+                <div style="--y:20deg;" class="side y-index"></div>
+                <div style="--y:30deg;" class="side y-index"></div>
+                <div style="--y:40deg;" class="side y-index"></div>
+                <div style="--y:50deg;" class="side y-index"></div>
+                <div style="--y:60deg;" class="side y-index"></div>
+                <div style="--y:70deg;" class="side y-index"></div>
+                <div style="--y:80deg;" class="side y-index"></div>
+                <div style="--y:90deg;" class="side y-index"></div>
+                <div style="--y:100deg;" class="side y-index"></div>
+                <div style="--y:110deg;" class="side y-index"></div>
+                <div style="--y:120deg;" class="side y-index"></div>
+                <div style="--y:130deg;" class="side y-index"></div>
+                <div style="--y:140deg;" class="side y-index"></div>
+                <div style="--y:150deg;" class="side y-index"></div>
+                <div style="--y:160deg;" class="side y-index"></div>
+                <div style="--y:170deg;" class="side y-index"></div>
+                <div style="--y:180deg;" class="side y-index"></div>
+            </div>
+            <div class="wrap-index">
+                <div style="--x:10deg;" class="side x-index"></div>
+                <div style="--x:20deg;" class="side x-index"></div>
+                <div style="--x:30deg;" class="side x-index"></div>
+                <div style="--x:40deg;" class="side x-index"></div>
+                <div style="--x:50deg;" class="side x-index"></div>
+                <div style="--x:60deg;" class="side x-index"></div>
+                <div style="--x:70deg;" class="side x-index"></div>
+                <div style="--x:80deg;" class="side x-index"></div>
+                <div style="--x:90deg;" class="side x-index"></div>
+                <div style="--x:100deg;" class="side x-index"></div>
+                <div style="--x:110deg;" class="side x-index"></div>
+                <div style="--x:120deg;" class="side x-index"></div>
+                <div style="--x:130deg;" class="side x-index"></div>
+                <div style="--x:140deg;" class="side x-index"></div>
+                <div style="--x:150deg;" class="side x-index"></div>
+                <div style="--x:160deg;" class="side x-index"></div>
+                <div style="--x:170deg;" class="side x-index"></div>
+                <div style="--x:180deg;" class="side x-index"></div>
+            </div>
+        </div>
       </div>
-      <div style="--wh: 500px;" class="circle-2">
-        <div style="--cl: royalblue;" class="circle-spin"></div>
-      </div>
-      <div style="--wh: 500px;" class="circle-3">
-        <div style="--cl: green;" class="circle-spin"></div>
-      </div>
-      <div style="--wh: 400px;" class="circle-4">
-        <div style="--cl: yellow;" class="circle-spin"></div>
-      </div>
-      </div>
+    <div class="author">Author: Đỗ Huy</div>
     </div>
   </foreignObject>
 </svg>
