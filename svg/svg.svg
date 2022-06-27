@@ -1,7 +1,7 @@
 <svg
   fill="none"
-  viewBox="0 0 1300 600"
-  width="1300"
+  viewBox="0 0 1500 600"
+  width="1500"
   height="600"
   xmlns="http://www.w3.org/2000/svg"
 >
@@ -19,8 +19,7 @@
           height: 600px;
           color: white;
           position: relative;
-          background-color: #0D1117;
-<!--           background-color: transparent; -->
+          background-color: #282A36;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -49,6 +48,7 @@
             transform-style: preserve-3d;
             display: flex;
             justify-content: center;
+            transform: rotate3d(0,0,1,var(--location));
             animation: spin var(--sp) infinite linear;
         }
         .wrap-index-mercury{
@@ -153,10 +153,10 @@
         }
         @keyframes spin{
             from{
-                transform: rotate3d(0,0,0,0);
+                transform: rotate3d(0,0,1,var(--location));
             }
             to{
-                transform: rotate3d(0,0,1, 360deg);
+                transform: rotate3d(0,0,1, calc(360deg + var(--location)));
             }
         }
         .the-sun{
@@ -213,7 +213,7 @@
 
       <div class="container">
         <div class="circle">
-            <div style="--wh: calc(var(--w-c-s) - 800px); --sp: 10000ms" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 800px); --sp: 10000ms; --location: 130deg;" class="circle-spin">
                 <div class="wrap-text"><div>Mercury</div></div>
                 <div class="wrap-index-mercury">
                     <div style="--y:10deg;" class="side y-index"></div>
@@ -256,7 +256,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 700px); --sp: 15000ms" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 700px); --sp: 15000ms; --location: 200deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Venus</div>
                 </div>
@@ -301,7 +301,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 600px); --sp: 20000ms" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 600px); --sp: 20000ms; --location: 100deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Earth &#38; Moon</div>
                 </div>
@@ -390,7 +390,7 @@
                     </div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 500px); --sp: 25000ms" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 500px); --sp: 25000ms; --location: 70deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Mars</div>
                 </div>
@@ -435,7 +435,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 400px); --sp: 30000ms;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 400px); --sp: 30000ms; --location: 360deg;;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Jupiter</div>
                 </div>
@@ -480,7 +480,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 300px); --sp: 35000ms" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 300px); --sp: 35000ms; --location: 180deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Saturn</div>
                 </div>
@@ -528,7 +528,7 @@
 
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 200px); --sp: 40000ms" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 200px); --sp: 40000ms; --location: 320deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Uranus</div>
                 </div>
@@ -573,7 +573,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 100px); --sp: 45000ms" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 100px); --sp: 45000ms; --location: 200deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Neptune</div>
                 </div>
