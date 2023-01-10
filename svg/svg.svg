@@ -12,19 +12,18 @@
           --w-c-s: 1200px;
       }
         .container {
-          font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+          font-family: Arial sans-serif;
           margin: 0;
           padding: 0;
           width: 100%;
           height: 600px;
           color: white;
           position: relative;
-          background-color: #282A36;
+          background-color: #0D1117;
           display: flex;
           justify-content: center;
           align-items: center;
         }
-        <!--! circle -->
         .circle{
             position: absolute;
             --wh: var(--w-c-s);
@@ -47,7 +46,7 @@
             border-radius: 50%;
             transform-style: preserve-3d;
             display: flex;
-            justify-content: center;
+            justify-content: center;wrap-index-earth
             transform: rotate3d(0,0,1,var(--location));
             animation: spin var(--sp) infinite linear;
         }
@@ -92,10 +91,10 @@
             transform-style: preserve-3d;
         }
         @keyframes spin-moon{
-            from{
+            0%{
                 transform: rotate3d(0,0,0,0);
             }
-            to{
+            100%{
                 transform: rotate3d(0,0,1,360deg);
             }
         }
@@ -164,7 +163,7 @@
             position: absolute;
             width: var(--wh);
             height: var(--wh);
-            opacity: .9;
+            opacity: 1;
         }
         .wrap-index{
             width: inherit;
@@ -209,11 +208,35 @@
             color: #fff;
             transform: translate(10px, -30px);
         }
+        .dot_star{
+            position: absolute;
+            color: white;
+            top: var(--t);
+            left: var(--l);
+        }
+        .blink{
+            animation: blink var(--d) infinite;
+            animation-delay: var(--d);
+        }
+        @keyframes blink{
+            0%{
+                color: transparent;
+            }
+            100%{
+                color: white;
+            }
+        }
       </style>
 
       <div class="container">
+      <div class="dot_star " style="--d:0ms;--s:0px;--l: 1080px;--t: 159px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 563px;--t: 217px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 705px;--t: 501px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 166px;--t: 23px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1082px;--t: 41px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 165px;--t: 11px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 921px;--t: 82px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 115px;--t: 264px;color:gray;">.</div><div class="dot_star blink" style="--d:2756ms;--s:1px;--l: 812px;--t: 125px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 868px;--t: 108px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 350px;--t: 206px;color:gray;">.</div><div class="dot_star blink" style="--d:3775ms;--s:1px;--l: 522px;--t: 374px;color:white;">.</div><div class="dot_star blink" style="--d:3514ms;--s:1px;--l: 666px;--t: 119px;color:white;">.</div><div class="dot_star blink" style="--d:1861ms;--s:1px;--l: 1426px;--t: 302px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 785px;--t: 158px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1109px;--t: 214px;color:gray;">.</div><div class="dot_star blink" style="--d:1460ms;--s:1px;--l: 986px;--t: 401px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1191px;--t: 417px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1043px;--t: 359px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 445px;--t: 522px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 850px;--t: 170px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 672px;--t: 202px;color:gray;">.</div><div class="dot_star blink" style="--d:3646ms;--s:1px;--l: 806px;--t: 199px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1458px;--t: 124px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 805px;--t: 525px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 933px;--t: 364px;color:gray;">.</div><div class="dot_star blink" style="--d:2135ms;--s:1px;--l: 183px;--t: 37px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1139px;--t: 211px;color:gray;">.</div><div class="dot_star blink" style="--d:4063ms;--s:1px;--l: 512px;--t: 11px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 862px;--t: 62px;color:gray;">.</div><div class="dot_star blink" style="--d:2076ms;--s:1px;--l: 1307px;--t: 3px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1389px;--t: 137px;color:gray;">.</div><div class="dot_star blink" style="--d:3138ms;--s:1px;--l: 1319px;--t: 254px;color:white;">.</div><div class="dot_star blink" style="--d:3994ms;--s:1px;--l: 1290px;--t: 259px;color:white;">.</div><div class="dot_star blink" style="--d:1878ms;--s:1px;--l: 1304px;--t: 258px;color:white;">.</div><div class="dot_star blink" style="--d:2084ms;--s:1px;--l: 393px;--t: 353px;color:white;">.</div><div class="dot_star blink" style="--d:1214ms;--s:1px;--l: 830px;--t: 274px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1165px;--t: 298px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 930px;--t: 189px;color:gray;">.</div><div class="dot_star blink" style="--d:4865ms;--s:1px;--l: 685px;--t: 285px;color:white;">.</div><div class="dot_star blink" style="--d:4943ms;--s:1px;--l: 521px;--t: 322px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1440px;--t: 43px;color:gray;">.</div><div 
+class="dot_star " style="--d:0ms;--s:2px;--l: 91px;--t: 137px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1339px;--t: 329px;color:gray;">.</div><div class="dot_star blink" style="--d:3407ms;--s:1px;--l: 1166px;--t: 14px;color:white;">.</div><div class="dot_star blink" style="--d:1518ms;--s:1px;--l: 1331px;--t: 520px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 908px;--t: 229px;color:gray;">.</div><div class="dot_star blink" style="--d:3375ms;--s:1px;--l: 820px;--t: 337px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1222px;--t: 581px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1498px;--t: 594px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 878px;--t: 10px;color:gray;">.</div><div class="dot_star blink" style="--d:176ms;--s:1px;--l: 922px;--t: 195px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 819px;--t: 218px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 7px;--t: 17px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1487px;--t: 528px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 
+351px;--t: 198px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 436px;--t: 467px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 165px;--t: 401px;color:gray;">.</div><div class="dot_star blink" style="--d:3945ms;--s:1px;--l: 936px;--t: 119px;color:white;">.</div><div class="dot_star blink" style="--d:64ms;--s:1px;--l: 1447px;--t: 481px;color:white;">.</div><div class="dot_star blink" style="--d:584ms;--s:1px;--l: 536px;--t: 186px;color:white;">.</div><div class="dot_star " 
+style="--d:0ms;--s:0px;--l: 707px;--t: 586px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 735px;--t: 484px;color:gray;">.</div><div class="dot_star blink" style="--d:4318ms;--s:1px;--l: 1363px;--t: 430px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 191px;--t: 226px;color:gray;">.</div><div class="dot_star blink" style="--d:1152ms;--s:1px;--l: 182px;--t: 143px;color:white;">.</div><div class="dot_star blink" style="--d:4927ms;--s:1px;--l: 832px;--t: 26px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 330px;--t: 341px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 711px;--t: 362px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 738px;--t: 421px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1173px;--t: 181px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1308px;--t: 111px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1126px;--t: 357px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 123px;--t: 322px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 775px;--t: 105px;color:gray;">.</div><div class="dot_star blink" style="--d:4595ms;--s:1px;--l: 730px;--t: 439px;color:white;">.</div><div class="dot_star blink" style="--d:2678ms;--s:1px;--l: 739px;--t: 238px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 205px;--t: 377px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 807px;--t: 118px;color:gray;">.</div><div class="dot_star blink" style="--d:2446ms;--s:1px;--l: 370px;--t: 134px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 89px;--t: 145px;color:gray;">.</div><div class="dot_star blink" style="--d:4332ms;--s:1px;--l: 124px;--t: 242px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 701px;--t: 301px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 566px;--t: 317px;color:gray;">.</div><div class="dot_star blink" style="--d:4029ms;--s:1px;--l: 1237px;--t: 58px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 56px;--t: 453px;color:gray;">.</div><div class="dot_star blink" style="--d:3124ms;--s:1px;--l: 623px;--t: 141px;color:white;">.</div><div class="dot_star blink" style="--d:301ms;--s:1px;--l: 865px;--t: 21px;color:white;">.</div><div class="dot_star blink" style="--d:661ms;--s:1px;--l: 948px;--t: 534px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 857px;--t: 508px;color:gray;">.</div><div class="dot_star blink" style="--d:4569ms;--s:1px;--l: 609px;--t: 265px;color:white;">.</div><div class="dot_star blink" style="--d:2519ms;--s:1px;--l: 739px;--t: 534px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 32px;--t: 155px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 899px;--t: 289px;color:gray;">.</div><div class="dot_star blink" style="--d:778ms;--s:1px;--l: 469px;--t: 418px;color:white;">.</div><div class="dot_star blink" style="--d:2509ms;--s:1px;--l: 
+1204px;--t: 125px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 240px;--t: 576px;color:gray;">.</div><div class="dot_star blink" style="--d:146ms;--s:1px;--l: 1233px;--t: 228px;color:white;">.</div><div class="dot_star blink" style="--d:47ms;--s:1px;--l: 1221px;--t: 425px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1230px;--t: 147px;color:gray;">.</div><div class="dot_star blink" style="--d:2535ms;--s:1px;--l: 565px;--t: 199px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1424px;--t: 178px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1227px;--t: 76px;color:gray;">.</div><div class="dot_star blink" style="--d:2679ms;--s:1px;--l: 143px;--t: 136px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 341px;--t: 130px;color:gray;">.</div><div class="dot_star blink" style="--d:4052ms;--s:1px;--l: 798px;--t: 344px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 9px;--t: 52px;color:gray;">.</div><div class="dot_star blink" style="--d:3880ms;--s:1px;--l: 28px;--t: 213px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 730px;--t: 376px;color:gray;">.</div><div class="dot_star blink" style="--d:1316ms;--s:1px;--l: 1408px;--t: 306px;color:white;">.</div><div class="dot_star blink" style="--d:1108ms;--s:1px;--l: 889px;--t: 236px;color:white;">.</div><div class="dot_star blink" style="--d:3535ms;--s:1px;--l: 1288px;--t: 134px;color:white;">.</div><div class="dot_star blink" style="--d:3531ms;--s:1px;--l: 1409px;--t: 100px;color:white;">.</div><div class="dot_star blink" style="--d:4731ms;--s:1px;--l: 1378px;--t: 555px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 583px;--t: 245px;color:gray;">.</div><div class="dot_star blink" style="--d:4359ms;--s:1px;--l: 931px;--t: 344px;color:white;">.</div><div class="dot_star blink" style="--d:2527ms;--s:1px;--l: 1384px;--t: 572px;color:white;">.</div><div class="dot_star blink" style="--d:192ms;--s:1px;--l: 1249px;--t: 194px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 611px;--t: 104px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 983px;--t: 218px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1079px;--t: 501px;color:gray;">.</div><div class="dot_star blink" style="--d:2014ms;--s:1px;--l: 35px;--t: 100px;color:white;">.</div><div class="dot_star blink" style="--d:4200ms;--s:1px;--l: 140px;--t: 537px;color:white;">.</div><div class="dot_star blink" style="--d:2428ms;--s:1px;--l: 597px;--t: 453px;color:white;">.</div><div class="dot_star blink" style="--d:820ms;--s:1px;--l: 1097px;--t: 119px;color:white;">.</div><div class="dot_star blink" style="--d:97ms;--s:1px;--l: 1132px;--t: 446px;color:white;">.</div><div class="dot_star blink" style="--d:2107ms;--s:1px;--l: 801px;--t: 339px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 600px;--t: 36px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 890px;--t: 262px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 491px;--t: 63px;color:gray;">.</div><div class="dot_star blink" style="--d:146ms;--s:1px;--l: 740px;--t: 403px;color:white;">.</div><div class="dot_star blink" style="--d:1721ms;--s:1px;--l: 356px;--t: 463px;color:white;">.</div><div class="dot_star blink" style="--d:3045ms;--s:1px;--l: 276px;--t: 363px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 1286px;--t: 296px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 201px;--t: 484px;color:gray;">.</div><div class="dot_star blink" style="--d:1369ms;--s:1px;--l: 708px;--t: 88px;color:white;">.</div><div class="dot_star blink" style="--d:2175ms;--s:1px;--l: 209px;--t: 234px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 879px;--t: 471px;color:gray;">.</div><div class="dot_star blink" style="--d:4800ms;--s:1px;--l: 110px;--t: 431px;color:white;">.</div><div class="dot_star blink" style="--d:3403ms;--s:1px;--l: 209px;--t: 55px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 1077px;--t: 104px;color:gray;">.</div><div class="dot_star " style="--d:0ms;--s:2px;--l: 541px;--t: 257px;color:gray;">.</div><div class="dot_star blink" style="--d:667ms;--s:1px;--l: 601px;--t: 4px;color:white;">.</div><div class="dot_star blink" style="--d:4982ms;--s:1px;--l: 873px;--t: 330px;color:white;">.</div><div class="dot_star blink" style="--d:864ms;--s:1px;--l: 716px;--t: 291px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 46px;--t: 226px;color:gray;">.</div><div class="dot_star " 
+style="--d:0ms;--s:2px;--l: 614px;--t: 27px;color:gray;">.</div><div class="dot_star blink" style="--d:3650ms;--s:1px;--l: 553px;--t: 466px;color:white;">.</div><div class="dot_star blink" style="--d:4563ms;--s:1px;--l: 1007px;--t: 385px;color:white;">.</div><div class="dot_star " style="--d:0ms;--s:0px;--l: 806px;--t: 234px;color:gray;">.</div>
         <div class="circle">
-            <div style="--wh: calc(var(--w-c-s) - 800px); --sp: 10000ms; --location: 130deg;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 800px); --sp: 100000ms; --location: 130deg;" class="circle-spin">
                 <div class="wrap-text"><div>Mercury</div></div>
                 <div class="wrap-index-mercury">
                     <div style="--y:10deg;" class="side y-index"></div>
@@ -256,7 +279,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 700px); --sp: 15000ms; --location: 200deg;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 700px); --sp: 150000ms; --location: 200deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Venus</div>
                 </div>
@@ -301,7 +324,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 600px); --sp: 20000ms; --location: 100deg;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 600px); --sp: 200000ms; --location: 100deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Earth &#38; Moon</div>
                 </div>
@@ -390,7 +413,7 @@
                     </div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 500px); --sp: 25000ms; --location: 70deg;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 500px); --sp: 250000ms; --location: 70deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Mars</div>
                 </div>
@@ -435,7 +458,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 400px); --sp: 30000ms; --location: 360deg;;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 400px); --sp: 300000ms; --location: 360deg;;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Jupiter</div>
                 </div>
@@ -480,7 +503,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 300px); --sp: 35000ms; --location: 180deg;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 300px); --sp: 350000ms; --location: 180deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Saturn</div>
                 </div>
@@ -528,7 +551,7 @@
 
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 200px); --sp: 40000ms; --location: 320deg;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 200px); --sp: 400000ms; --location: 320deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Uranus</div>
                 </div>
@@ -573,7 +596,7 @@
                     <div style="--x:180deg;" class="side x-index"></div>
                 </div>
             </div>
-            <div style="--wh: calc(var(--w-c-s) - 100px); --sp: 45000ms; --location: 200deg;" class="circle-spin">
+            <div style="--wh: calc(var(--w-c-s) - 100px); --sp: 450000ms; --location: 200deg;" class="circle-spin">
                 <div class="wrap-text">
                     <div>Neptune</div>
                 </div>
