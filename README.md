@@ -13,7 +13,7 @@
   <br>
   <br>
   
- ![Github aggressive rank!](https://github-decoration.onrender.com)
+ ![](https://github-decoration.onrender.com/)
  
 Contact with me to: 
 - [Facebook] : https://www.facebook.com/dohuyxyz/
