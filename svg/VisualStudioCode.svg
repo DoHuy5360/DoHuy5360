@@ -1,0 +1,807 @@
+<svg fill="none" viewBox="0 0 1200 400" width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			.screen {
+				width: 1200px;
+				display: flex;
+				flex-direction: column;
+			}
+			.terminal-bar,
+			.title-bar {
+				color: #f3f3ed;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 0.5rem;
+				padding: 6px 10px;
+				background-color: #21222c;
+				z-index: 2;
+			}
+			.terminal-bar {
+				display: flex;
+			}
+			.title-bar {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+			}
+			.app-option,
+			.window-option {
+				gap: 20px;
+				display: flex;
+				align-items: center;
+			}
+			.window-option {
+				justify-self: end;
+			}
+			.app-terminal :nth-last-child(n + 2) {
+				color: #6272a4;
+			}
+			.option {
+				position: relative;
+			}
+			.app-terminal :last-child::after {
+				content: "";
+				position: absolute;
+				background-color: #ff79c6;
+				width: 42px;
+				height: 1px;
+				bottom: -5px;
+				left: 0;
+			}
+			.wrap-terminal {
+				border-top: 1px solid #bd93f9;
+			}
+			.app-terminal-option {
+				gap: 25px;
+				display: flex;
+				align-items: center;
+			}
+			.terminal-option {
+				display: flex;
+				align-items: baseline;
+				gap: 10px;
+			}
+			.options {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+			}
+			.workbench {
+				display: flex;
+				background-color: #282a36;
+			}
+			.workbench-table {
+				display: flex;
+				flex-direction: column;
+				flex: 4;
+			}
+			.wrap-tree {
+				flex: 1;
+				background-color: #21222c;
+			}
+			.list-tree {
+				background-color: #21222c;
+				color: #f3f3ed;
+				font-size: 0.6rem;
+			}
+			.branch {
+				display: flex;
+				align-items: baseline;
+				gap: 3px;
+				padding: 2px 20px;
+			}
+			.workbench-name {
+				justify-self: center;
+			}
+			.workbench-folder {
+				display: flex;
+				align-items: center;
+				gap: 3px;
+				color: #f3f3ed;
+				font-size: 0.6rem;
+				font-weight: bold;
+				background-color: #282a36;
+				padding: 5px 10px;
+			}
+			.branch-icon {
+				clip-path: polygon(38% 28%, 57% 40%, 100% 40%, 100% 100%, 0 100%, 0 28%);
+				width: 8px;
+				height: 9px;
+			}
+			.branch-vscode {
+				position: relative;
+			}
+			.indent {
+				padding-left: 20px;
+			}
+			.branch-logo {
+				width: 8px;
+				aspect-ratio: 1;
+				z-index: 1;
+				top: 3px;
+				left: 1px;
+				position: absolute;
+				background-color: #bbdefb;
+				clip-path: polygon(85% 0, 100% 10%, 100% 90%, 85% 100%, 35% 62%, 12% 79%, 0 73%, 25% 53%, 0 33%, 11% 25%, 35% 44%);
+			}
+			.triangle-hole {
+				width: 3px;
+				aspect-ratio: 1;
+				z-index: 2;
+				background: #42a5f5;
+				top: 3px;
+				left: 4px;
+				position: absolute;
+				clip-path: polygon(100% 0, 35% 50%, 100% 100%);
+			}
+			.vscode {
+				background-color: #42a5f5;
+			}
+			.window {
+				width: inherit;
+				height: 200px;
+				overflow: hidden;
+				position: relative;
+			}
+			.tray-code {
+				width: inherit;
+				height: 200px;
+				position: absolute;
+			}
+			.outline {
+				outline: 2px solid #eaeaea90;
+				outline-offset: 1px;
+				border-radius: 1px;
+				width: 8px;
+				aspect-ratio: 1;
+				display: grid;
+				place-items: center;
+			}
+			.log-terminal {
+				height: 150px;
+				background-color: #282a36;
+			}
+			.scale-up {
+				transform: scale(1.5);
+			}
+			.scale-up-2 {
+				transform: scale(2);
+			}
+			.scale-w {
+				transform: scaleX(3);
+			}
+			.order-1 {
+				z-index: 1;
+				animation: scroll-1 3000ms linear infinite;
+			}
+			.order-2 {
+				animation: scroll-2 3000ms linear infinite;
+			}
+			@keyframes scroll-1 {
+				from {
+					transform: translateY(0%);
+				}
+				to {
+					transform: translateY(-100%);
+				}
+			}
+			@keyframes scroll-2 {
+				from {
+					transform: translateY(100%);
+				}
+				to {
+					transform: translateY(0%);
+				}
+			}
+			.wrap-code {
+				display: flex;
+				gap: 3px;
+				padding: 2px;
+				padding-left: var(--p);
+			}
+			.code {
+				height: 5px;
+				width: var(--w);
+				background-color: var(--bg);
+				border-radius: 1px;
+			}
+			.wrap-log {
+				font-size: 0.7rem;
+				color: #f3f3ed;
+				padding: 6px 10px;
+			}
+			.log {
+				display: flex;
+				align-items: center;
+			}
+			.log-path {
+				margin-top: 10px;
+			}
+			.caret {
+				width: 5px;
+				height: 15px;
+				animation: blink 1000ms steps(2) infinite;
+			}
+			@keyframes blink {
+				to {
+					background-color: white;
+				}
+			}
+			.wrap-tab {
+				display: flex;
+				align-items: center;
+				background-color: #191a21;
+				color: #89918e;
+				font-size: 0.6rem;
+				padding: 0 6px;
+			}
+			.tab {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				padding: 5px 10px;
+			}
+			.tab-icon {
+				width: 10px;
+				aspect-ratio: 1;
+			}
+			.html {
+				background-color: #e44d26;
+				color: #282a36;
+				display: grid;
+				place-items: center;
+				font-weight: bold;
+				font-size: 0.5rem;
+				clip-path: polygon(5% 0, 90% 0, 85% 90%, 55% 100%, 40% 100%, 10% 90%);
+			}
+			.css {
+				background-color: #42a5f5;
+				clip-path: polygon(15% 0, 100% 0, 85% 90%, 50% 100%, 0 90%);
+				position: relative;
+			}
+			.css::before {
+				content: "";
+				position: absolute;
+				width: 8px;
+				height: 18px;
+				background-color: #21222c;
+				top: 2px;
+				left: 0;
+				clip-path: polygon(0 0, 100% 0, 96% 10%, 0 10%);
+			}
+			.css::after {
+				content: "";
+				position: absolute;
+				background-color: #21222c;
+				left: 0;
+				width: 8px;
+				height: 12px;
+				bottom: 2px;
+				clip-path: polygon(0 80%, 100% 80%, 95% 90%, 50% 100%, 0 90%);
+			}
+			.javascript {
+				background-color: #ffca28;
+				color: #21222c;
+				font-size: 0.4rem;
+				font-weight: bold;
+				display: flex;
+				justify-content: end;
+				align-items: flex-end;
+				border-radius: 1px;
+				padding-right: 1px;
+			}
+			.tab-select {
+				background-color: #282a36;
+				border-top: 1px solid #ff79c6;
+			}
+			.workbench-title {
+				color: #f3f3ed;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 0.5rem;
+				padding: 5px 10px;
+				background-color: #21222c;
+			}
+			.choose {
+				background-color: #313341;
+			}
+			.workbench-name {
+				display: flex;
+				gap: 3px;
+				align-items: center;
+				color: #f3f3ed;
+			}
+		</style>
+            <div class="screen">
+						<div class="title-bar">
+							<div class="app-option">
+								<div class="option">File</div>
+								<div class="option">Edit</div>
+								<div class="option">Selection</div>
+								<div class="option">View</div>
+								<div class="option">Go</div>
+								<div class="option">Run</div>
+								<div class="option">Terminal</div>
+								<div class="option">Help</div>
+							</div>
+							<div class="workbench-name">
+								script.js - VisualStudioCode - Visual Studio Code
+							</div>
+							<div class="window-option">
+								<div class="option scale-w">-</div>
+								<div class="option">◱</div>
+								<div class="option">⨉</div>
+							</div>
+						</div>
+						<div class="workbench">
+							<div class="workbench-table">
+								<div class="wrap-tab">
+									<div class="tab">
+										<div class="tab-icon html">5</div>
+										<div>index.html</div>
+									</div>
+									<div class="tab">
+										<div class="tab-icon css"></div>
+										<div>styles.css</div>
+									</div>
+									<div class="tab tab-select">
+										<div class="tab-icon javascript">JS</div>
+										<div>scripts.js</div>
+									</div>
+								</div>
+								<div class="window">
+									<div class="tray-code order-1">
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 35px"></div>
+											<div class="code" style="--bg: lightblue; --w: 35px"></div>
+											<div class="code" style="--bg: lightblue; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #f1fa86; --w: 35px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 10px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 35px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 35px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 25px"></div>
+											<div class="code" style="--bg: lightblue; --w: 15px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 15px"></div>
+											<div class="code" style="--bg: lightblue; --w: 30px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 10px">
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: lightblue; --w: 45px"></div>
+											<div class="code" style="--bg: lightblue; --w: 60px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 60px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 10px">
+											<div class="code" style="--bg: #ff79b8; --w: 25px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 10px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 35px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 35px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 45px"></div>
+											<div class="code" style="--bg: lightblue; --w: 10px"></div>
+											<div class="code" style="--bg: lightblue; --w: 25px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 5px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 60px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 15px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: lightblue; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 30px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: lightblue; --w: 5px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 15px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 20px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #f1fa86; --w: 10px"></div>
+											<div class="code" style="--bg: lightblue; --w: 25px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 60px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 30px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 35px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 10px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 5px"></div>
+											<div class="code" style="--bg: lightblue; --w: 30px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: lightblue; --w: 10px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+											<div class="code" style="--bg: lightblue; --w: 30px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 35px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 15px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+											<div class="code" style="--bg: lightblue; --w: 20px"></div>
+											<div class="code" style="--bg: lightblue; --w: 45px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: lightblue; --w: 40px"></div>
+											<div class="code" style="--bg: lightblue; --w: 35px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 50px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 10px">
+											<div class="code" style="--bg: #ff79b8; --w: 35px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 50px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 50px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: lightblue; --w: 5px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 25px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 10px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: lightblue; --w: 35px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: lightblue; --w: 5px"></div>
+											<div class="code" style="--bg: lightblue; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 45px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 5px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 10px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 10px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 50px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 30px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 50px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 45px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 45px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 30px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 25px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+											<div class="code" style="--bg: lightblue; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #ff79b8; --w: 50px"></div>
+											<div class="code" style="--bg: lightblue; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 5px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 5px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 25px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 10px">
+											<div class="code" style="--bg: #f1fa86; --w: 10px"></div>
+											<div class="code" style="--bg: lightblue; --w: 15px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 60px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: lightblue; --w: 50px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 50px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 15px"></div>
+											<div class="code" style="--bg: lightblue; --w: 35px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #ff79b8; --w: 10px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 60px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 20px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 50px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: lightblue; --w: 15px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #f1fa86; --w: 15px"></div>
+											<div class="code" style="--bg: lightblue; --w: 10px"></div>
+										</div>
+									</div>
+									<div class="tray-code order-2">
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 35px"></div>
+											<div class="code" style="--bg: lightblue; --w: 35px"></div>
+											<div class="code" style="--bg: lightblue; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #f1fa86; --w: 35px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 10px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 35px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 35px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 25px"></div>
+											<div class="code" style="--bg: lightblue; --w: 15px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 15px"></div>
+											<div class="code" style="--bg: lightblue; --w: 30px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 10px">
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: lightblue; --w: 45px"></div>
+											<div class="code" style="--bg: lightblue; --w: 60px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 60px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 10px">
+											<div class="code" style="--bg: #ff79b8; --w: 25px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 10px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 35px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 35px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 45px"></div>
+											<div class="code" style="--bg: lightblue; --w: 10px"></div>
+											<div class="code" style="--bg: lightblue; --w: 25px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 5px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 60px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 15px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: lightblue; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 30px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: lightblue; --w: 5px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 15px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 20px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #f1fa86; --w: 10px"></div>
+											<div class="code" style="--bg: lightblue; --w: 25px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 60px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 30px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 35px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 10px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 5px"></div>
+											<div class="code" style="--bg: lightblue; --w: 30px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: lightblue; --w: 10px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+											<div class="code" style="--bg: lightblue; --w: 30px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 35px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 15px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+											<div class="code" style="--bg: lightblue; --w: 20px"></div>
+											<div class="code" style="--bg: lightblue; --w: 45px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: lightblue; --w: 40px"></div>
+											<div class="code" style="--bg: lightblue; --w: 35px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 50px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 10px">
+											<div class="code" style="--bg: #ff79b8; --w: 35px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 50px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 50px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: lightblue; --w: 5px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 25px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 10px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: lightblue; --w: 35px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 5px"></div>
+											<div class="code" style="--bg: lightblue; --w: 5px"></div>
+											<div class="code" style="--bg: lightblue; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 45px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 5px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 10px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 10px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 50px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 30px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 50px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 45px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #50fa7b; --w: 45px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 45px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 30px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 25px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 25px"></div>
+											<div class="code" style="--bg: lightblue; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: #ff79b8; --w: 50px"></div>
+											<div class="code" style="--bg: lightblue; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 5px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 5px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 40px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 25px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 25px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 10px">
+											<div class="code" style="--bg: #f1fa86; --w: 10px"></div>
+											<div class="code" style="--bg: lightblue; --w: 15px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 60px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 20px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 30px">
+											<div class="code" style="--bg: lightblue; --w: 50px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 50px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 20px"></div>
+											<div class="code" style="--bg: #ff79b8; --w: 15px"></div>
+											<div class="code" style="--bg: lightblue; --w: 35px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #ff79b8; --w: 10px"></div>
+											<div class="code" style="--bg: #50fa7b; --w: 60px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 60px"></div>
+											<div class="code" style="--bg: lightblue; --w: 20px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 50px"></div>
+											<div class="code" style="--bg: #f1fa86; --w: 40px"></div>
+											<div class="code" style="--bg: lightblue; --w: 15px"></div>
+										</div>
+										<div class="wrap-code" style="--p: 40px">
+											<div class="code" style="--bg: #f1fa86; --w: 15px"></div>
+											<div class="code" style="--bg: lightblue; --w: 10px"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="wrap-tree">
+								<div class="workbench-title">
+									<div class="workbench-name">
+										<div>EXPLORER</div>
+									</div>
+									<div>⋯</div>
+								</div>
+								<div class="workbench-folder">
+									<div class="scale-up">▹</div>
+									<div>VisualStudioCode</div>
+								</div>
+								<div class="list-tree">
+									<div class="branch">
+										<div class="scale-up">▹</div>
+										<div class="branch-vscode">
+											<div class="branch-logo">
+												<div class="triangle-hole"></div>
+											</div>
+											<div class="branch-icon vscode"></div>
+										</div>
+										<div>.vscode</div>
+									</div>
+									<div class="branch">
+										<div class="tab-icon html">5</div>
+										<div>index.html</div>
+									</div>
+									<div class="branch">
+										<div class="tab-icon css"></div>
+										<div>styles.css</div>
+									</div>
+									<div class="branch choose">
+										<div class="tab-icon javascript">JS</div>
+										<div>scripts.js</div>
+									</div>
+									<div class="branch"></div>
+								</div>
+							</div>
+						</div>
+						<div class="wrap-terminal">
+							<div class="terminal-bar">
+								<div class="app-option app-terminal">
+									<div class="option">PROBLEMS</div>
+									<div class="option">OUTPUT</div>
+									<div class="option">DEBUG CONSOLE</div>
+									<div class="option">TERMINAL</div>
+								</div>
+								<div class="terminal-option">
+									<div class="option options">
+										<div class="outline">></div>
+										<div>Code</div>
+									</div>
+									<div class="option options">
+										<div class="scale-up-2">+</div>
+										<div class="scale-up">▿</div>
+									</div>
+									<div class="option scale-up">◫</div>
+									<div class="option scale-up">▮</div>
+									<div class="option">⋯</div>
+									<div class="option">⨉</div>
+								</div>
+							</div>
+							<div class="log-terminal">
+								<div class="wrap-log">
+									<div class="log">Microsoft Windows [Version 10.0.19045.2604]</div>
+									<div class="log">(c) Microsoft Corporation. All rights reserved.</div>
+									<div class="log log-path">
+										<div>D:\projects\VisualStudioCode></div>
+										<div class="caret"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+        </div>
+    </foreignObject>
+</svg>
