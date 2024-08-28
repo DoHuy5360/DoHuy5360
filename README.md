@@ -2,8 +2,9 @@
 
 <img src="svg/SolarSystem.svg">
 
-![View My Rank](https://github-decoration.onrender.com/)
 <img src="svg/VisualStudioCode.svg">
+
+![View My Rank](https://github-decoration.onrender.com/)
 
 ## Career Milestones
 | Organize |Year|Start|End|Project|Tech(s)|
