@@ -10,6 +10,7 @@
 | Organize |Year|Start|End|Project|Tech(s)|
 |---:|:---:|:---:|:---:|:---|:---|
 |`Van Lang University`|2024 |03/05|Current|-|-|
+|+|+| Future |Future|`Instructor attendance via borrowing equipment`|`Vue.js v3`
 |+|+| Future |Future|`Learning Outcomes Management`|`Vue.js v3`
 |+|+|22/07| Current |`Student Information Lookup`| `Vue.js v3` |
 |+|+|13/05| Current |`Visiting Lecturer Management` | `.Net Core v8`
