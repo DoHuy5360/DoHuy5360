@@ -7,15 +7,14 @@
 ![View My Rank](https://github-decoration.onrender.com/)
 
 ## Career Milestones
-| Organize |Year|Start|End|Project|Tech(s)|
-|---:|:---:|:---:|:---:|:---|:---|
-|`Van Lang University`|2024 |03/05|Current|-|-|
-|+|+| Future |Future|`Objective Structure Clinical Examination (OSCE)`|`Vue.js v3`
-|+|+| Future |Future|`Course Feedback`|`Vue.js v3`
-|+|+| Future |Future|`Instructor attendance via borrowing equipment`|`Vue.js v3`
-|+|+| Future |Future|`Learning Outcomes Management`|`Vue.js v3`
-|+|+|22/07| Current |`Student Information Lookup`| `Vue.js v3` |
-|+|+|13/05| Current |`Visiting Lecturer Management` | `.Net Core v8`
+| Organize |Year|Start|End|Project|Tech(s)|Role|
+|---:|:---:|:---:|:---:|:---|:---|:---|
+|`Van Lang University`|2024 |03/05|current|-|-|-|
+|+|+| - |-|`Objective Structure Clinical Examination (OSCE)`|`Vue.js v3`| `dev`
+|+|+| - | current |`Course Feedback`|`Laravel 9`| `maintainer` `dev`
+|+|+|03/12|current|`IT-Connect`|`.Net 8` `Vue.js v3` | `dev`
+|+|+|22/07| current |`Student Information Lookup`| `Vue.js v3` | `dev`
+|+|+|13/05| current |`Visiting Lecturer Management` | `.Net 8` | `dev`
 
 
 ## Contact with me to: 
